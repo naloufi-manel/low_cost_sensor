@@ -119,7 +119,7 @@ Make holes at the inlets of the waterproof box for each sensor and then pass the
  ![](https://user-images.githubusercontent.com/63862628/234028699-be3eedc5-a5da-4c01-a79a-1a5ff92c0a64.jpg)
 
 For the tubidity sensor, make a small opening at the level of the entrance of the sensor on the box and introduce the "yellow-black-red" cable like in the picture. Then plug the "yellow-black-red" end to the Turbidity circuit board and put it on analog signal output. 
- ![](https://user-images.githubusercontent.com/63862628/234047616-7e99c0a0-0afb-4e3c-aa1a-586a54fee063.png)
+ ![](https://user-images.githubusercontent.com/63862628/234048848-8ce6cbff-50ea-46e1-a6c1-bd3e152d8aa4.jpg)
  ![](https://user-images.githubusercontent.com/63862628/234036700-a236d5ca-c7c7-47dc-ab5d-fea2ab4b40a8.jpg)
   
 Then for the temperature sensors, make a small opening in the water proof box and pull the waterproof part of the sensor out of the box through the hole. 
