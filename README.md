@@ -23,11 +23,13 @@ A complete list of components, measurements, drawings, and other specifications 
 * Arduino Uno
 * Expansion Shield (DFRobot Expansion Shield V7.1)  
 * real time clock circuit board
+* 16 Bit ADC module V1.0
 #### Water Sensors: 
-* Temperature (temperature probe and temperature circuit board)
+* Temperature (temperature probe and Terminal sensor adapter V2.0)
+* 2nd temperature Sensor (DS18B20 temperature sensor V2)
 * pH (pH probe and pH circuit board)
-* EC (EC probe, EC circuit board and Anolog isolation module)
-* Turbidity (ORP probe and ORP circuit board)
+* Electrical Conductivity (EC probe, EC circuit board and Anolog isolation module)
+* Turbidity (turbity probe and turbidity circuit board)
 * Dissolved Oxygen (DO probe, circuit board and Anolog isolation module)
 #### Data Storage:
 * Micro-SD module
@@ -39,9 +41,9 @@ A complete list of components, measurements, drawings, and other specifications 
 * Wires
 * Bolts, nuts and Screws
 * Battery and micro USB cable (to connect with the arduino Uno)
-* Double-sided adhesive
+* heat gun
 
-## Installing KnowFlow software
+### Installing KnowFlow software
 You don’t need to have experience with Arduino or software development. 
 KnowFlow is packaged wtth supporting software libraries to make it easier for you to enable different sensor features 
 for your application. Feel free to post your software questions on our wiki page on public lab or github.
@@ -54,3 +56,47 @@ for your application. Feel free to post your software questions on our wiki page
 1. Click "Verify" then "Upload" the software to your board.
 
 
+
+### Sensor building: water quality monitoring 
+
+We need to connect all the sensors, MicroSD card module to the Arduino, fixed it to  the waterproof box and then connect to the power supply.
+
+#### 1. Connect all the modules to the Arduino expansion (I/O Expansion Shield V7.1)
+
+For the following step, the connection to the Arduino expansion the color should be matched.
+
+##### 16-bit ADC module 
+Plug the white end of the "red-black-blue-green" cable to the 16-bit ADC module and the black end to the blue I2C interface of the Expansion Shield : 
+  -  red : 5V 
+  -  black : GND
+  -  blue : SCL
+  -  green : SDA
+
+##### Temperature 
+Plug the white end of the "green-red-black" cable to the Plugable Terminal V2 (Terminal sensor adapter) and the black end to Digital Port D3 (Expansion Shield). 
+Plug the "yellow-red-black" cable to the grey end of the temperature sensor adapter : 
+  - Yellow : A
+  - Red : B
+  - Black : C
+ 
+Add the second temperature sensor. Plug the white end of the "green-red-black" cable to the DS18B20 temperature sensor and the black end to Digital Port D5 (Expansion Shield). 
+
+##### pH
+Plug the white end of the "blue-red-black" cable to the pH circuit board and the black end to Analog port A1 (Expansion Shield).
+
+##### Electrical Conductivity
+Plug the "orange-red-brown" cable to the EC circuit board and to the SEN end of the isolation module. 
+Plug the white end of the "blue-red-black" cable to the MCU of the isolation module, the black end to the Analog port A1 of the 16-bit ADC module. 
+
+##### Turbidity
+The cable sensor does not have the same color connection at both ends. Plug the "red-yellow-black" end of the cable to the sensor and the "yellow-black-red" end to the Turbidity circuit board.  
+Plug the white end of the "blue-red-black" cable to the Turbidity circuit board and the black end to the Analog port A0 of the 16-bit ADC module. 
+
+##### dissolved oxygen
+Plug the "orange-red-brown" cable to the EC circuit board and to the SEN end of the isolation module. 
+Plug the white end of the "blue-red-black" cable to the MCU of the isolation module, the black end to the Analog port A2 of the 16-bit ADC module. 
+
+##### Real Time Clock and SD card
+Plug the white end of the "red-black-blue-green" cable to the RTC module, and the black end to the blue I2C interface of the expansion shield (same color matching as for the 16-bit ADC module). 
+
+##### All the sensors are connected now.
