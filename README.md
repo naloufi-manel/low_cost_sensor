@@ -39,7 +39,7 @@ A complete list of components, measurements, drawings, and other specifications 
 * Heat Shrink Tubing (For the turbidity sensor)
 #### Other parts: 
 * Wires
-* Bolts, nuts and Screws
+* Bolts and nuts
 * Battery and micro USB cable (to connect with the arduino Uno)
 * heat gun
 
@@ -89,7 +89,8 @@ Plug the "orange-red-brown" cable to the EC circuit board and to the SEN end of 
 Plug the white end of the "blue-red-black" cable to the MCU of the isolation module, the black end to the Analog port A1 of the 16-bit ADC module. 
 
 ##### Turbidity
-The cable sensor does not have the same color connection at both ends. Plug the "red-yellow-black" end of the cable to the sensor and the "yellow-black-red" end to the Turbidity circuit board.  
+The cable sensor does not have the same color connection at both ends. 
+Remove the black cap from the sensor. Plug the "red-yellow-black" end of the cable to the sensor. Add the heat shrink tubing and heat with the heat gun to make the sensor waterproof.  
 Plug the white end of the "blue-red-black" cable to the Turbidity circuit board and the black end to the Analog port A0 of the 16-bit ADC module. 
 
 ##### dissolved oxygen
@@ -98,5 +99,22 @@ Plug the white end of the "blue-red-black" cable to the MCU of the isolation mod
 
 ##### Real Time Clock and SD card
 Plug the white end of the "red-black-blue-green" cable to the RTC module, and the black end to the blue I2C interface of the expansion shield (same color matching as for the 16-bit ADC module). 
+Connect the MicroSD card module to the blue SD card slot and insert the Micro SD card.
 
-##### All the sensors are connected now.
+##### All the sensors are connected now. Connect the expansion shield to the arduino UNO 
+
+
+
+##### Attach the electronic components to the plate
+Check the size of the plate in regard to the box and identify the placement of each component on the plate. I used a foam plate.  You can use double-sided adhesive tape or Bolts and nuts to fix each board to the plate. 
+Place the plate in the waterproof box. 
+Make holes at the inlets of the waterproof box for each sensor and then pass the BNC interface through the hole as shown in the picture below (for the pH, EC and DO sensors). 
+//PHOTO
+For the tubidity sensor, make a small opening at the level of the entrance of the sensor on the box and introduce the "yellow-black-red" cable like in the picture. Then plug the "yellow-black-red" end to the Turbidity circuit board. 
+//PHOTOT
+Then for the temperature sensors, make a small opening in the water proof box and pull the waterproof part of the sensor out of the box through the hole. 
+Connect each probes 
+
+Now connect the battery to the arduino uno using the micro USB cable. If the light turns on, it means that it works.
+
+###### The circuits is good. Close the box
