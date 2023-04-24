@@ -61,7 +61,7 @@ for your application. Feel free to post your software questions on our wiki page
 
 We need to connect all the sensors, MicroSD card module to the Arduino, fixed it to  the waterproof box and then connect to the power supply.
 
-#### 1. Connect all the modules to the Arduino expansion (I/O Expansion Shield V7.1)
+#### Connect all the modules to the Arduino expansion (I/O Expansion Shield V7.1)
 
 For the following step, the connection to the Arduino expansion the color should be matched.
 
@@ -71,35 +71,41 @@ Plug the white end of the "red-black-blue-green" cable to the 16-bit ADC module 
   -  black : GND
   -  blue : SCL
   -  green : SDA
+![](https://user-images.githubusercontent.com/63862628/234029967-c6534c24-5e5d-4007-82e3-0702aa023548.jpg)
+Then put the I2C Address (ADDR on 0x49).
 
-##### Temperature 
+##### 1. Temperature 
 Plug the white end of the "green-red-black" cable to the Plugable Terminal V2 (Terminal sensor adapter) and the black end to Digital Port D3 (Expansion Shield). 
 Plug the "yellow-red-black" cable to the grey end of the temperature sensor adapter : 
   - Yellow : A
   - Red : B
   - Black : C
- 
+ ![](https://user-images.githubusercontent.com/63862628/234031650-c3e43a25-60cc-4ca2-acc7-0f4334faef03.jpg)
 Add the second temperature sensor. Plug the white end of the "green-red-black" cable to the DS18B20 temperature sensor and the black end to Digital Port D5 (Expansion Shield). 
 
-##### pH
+##### 2. pH
 Plug the white end of the "blue-red-black" cable to the pH circuit board and the black end to Analog port A1 (Expansion Shield).
 
-##### Electrical Conductivity
+##### 3. Electrical Conductivity
 Plug the "orange-red-brown" cable to the EC circuit board and to the SEN end of the isolation module. 
 Plug the white end of the "blue-red-black" cable to the MCU of the isolation module, the black end to the Analog port A1 of the 16-bit ADC module. 
 
-##### Turbidity
+##### 4. Turbidity
 The cable sensor does not have the same color connection at both ends. 
 Remove the black cap from the sensor. Plug the "red-yellow-black" end of the cable to the sensor. Add the heat shrink tubing and heat with the heat gun to make the sensor waterproof.  
+ ![](https://user-images.githubusercontent.com/63862628/234028698-d0f3633c-0cc3-4f47-aeeb-a31a3aff885b.jpg)
+ 
 Plug the white end of the "blue-red-black" cable to the Turbidity circuit board and the black end to the Analog port A0 of the 16-bit ADC module. 
 
-##### dissolved oxygen
+##### 5. dissolved oxygen
 Plug the "orange-red-brown" cable to the EC circuit board and to the SEN end of the isolation module. 
 Plug the white end of the "blue-red-black" cable to the MCU of the isolation module, the black end to the Analog port A2 of the 16-bit ADC module. 
 
 ##### Real Time Clock and SD card
 Plug the white end of the "red-black-blue-green" cable to the RTC module, and the black end to the blue I2C interface of the expansion shield (same color matching as for the 16-bit ADC module). 
 Connect the MicroSD card module to the blue SD card slot and insert the Micro SD card.
+ ![](https://user-images.githubusercontent.com/63862628/234029981-3ea9b8c1-d831-4a09-9afb-8a073fbb7051.jpg)
+ ![](https://user-images.githubusercontent.com/63862628/234028706-34e0be27-760a-4a07-a9d1-3208af13e2b8.jpg)
 
 ##### All the sensors are connected now. Connect the expansion shield to the arduino UNO 
 
@@ -109,9 +115,13 @@ Connect the MicroSD card module to the blue SD card slot and insert the Micro SD
 Check the size of the plate in regard to the box and identify the placement of each component on the plate. I used a foam plate.  You can use double-sided adhesive tape or Bolts and nuts to fix each board to the plate. 
 Place the plate in the waterproof box. 
 Make holes at the inlets of the waterproof box for each sensor and then pass the BNC interface through the hole as shown in the picture below (for the pH, EC and DO sensors). 
-//PHOTO
-For the tubidity sensor, make a small opening at the level of the entrance of the sensor on the box and introduce the "yellow-black-red" cable like in the picture. Then plug the "yellow-black-red" end to the Turbidity circuit board. 
-//PHOTOT
+ ![](https://user-images.githubusercontent.com/63862628/234028708-197e813f-6773-4ba9-899d-ff0cd1938f83.jpg)
+ ![](https://user-images.githubusercontent.com/63862628/234028699-be3eedc5-a5da-4c01-a79a-1a5ff92c0a64.jpg)
+
+For the tubidity sensor, make a small opening at the level of the entrance of the sensor on the box and introduce the "yellow-black-red" cable like in the picture. Then plug the "yellow-black-red" end to the Turbidity circuit board and put it on analog signal output. 
+ ![](https://user-images.githubusercontent.com/63862628/234028701-343abdf8-dd19-4fa1-92a2-b01c6bbd4d7b.jpg)
+ ![](https://user-images.githubusercontent.com/63862628/234036700-a236d5ca-c7c7-47dc-ab5d-fea2ab4b40a8.jpg)
+  
 Then for the temperature sensors, make a small opening in the water proof box and pull the waterproof part of the sensor out of the box through the hole. 
 Connect each probes 
 
