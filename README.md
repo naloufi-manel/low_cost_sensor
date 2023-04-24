@@ -119,12 +119,13 @@ Make holes at the inlets of the waterproof box for each sensor and then pass the
  ![](https://user-images.githubusercontent.com/63862628/234028699-be3eedc5-a5da-4c01-a79a-1a5ff92c0a64.jpg)
 
 For the tubidity sensor, make a small opening at the level of the entrance of the sensor on the box and introduce the "yellow-black-red" cable like in the picture. Then plug the "yellow-black-red" end to the Turbidity circuit board and put it on analog signal output. 
- ![](https://user-images.githubusercontent.com/63862628/234028701-343abdf8-dd19-4fa1-92a2-b01c6bbd4d7b.jpg)
+ ![](https://user-images.githubusercontent.com/63862628/234028701-343abdf8-dd19-4fa1-92a2-b01c6bbd4d7b.jpg =250x250)
  ![](https://user-images.githubusercontent.com/63862628/234036700-a236d5ca-c7c7-47dc-ab5d-fea2ab4b40a8.jpg)
   
 Then for the temperature sensors, make a small opening in the water proof box and pull the waterproof part of the sensor out of the box through the hole. 
-Connect each probes 
+Connect each probes. 
 
 Now connect the battery to the arduino uno using the micro USB cable. If the light turns on, it means that it works.
 
 ###### The circuits is good. Close the box
+ ![](https://user-images.githubusercontent.com/63862628/234042985-8cb406f9-b010-46b1-903e-d1c3c4c8d045.jpg)
