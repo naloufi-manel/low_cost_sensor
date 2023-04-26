@@ -49,7 +49,7 @@ KnowFlow is packaged wtth supporting software libraries to make it easier for yo
 for your application. Feel free to post your software questions on our wiki page on public lab or github.
 
 1. Download Arduino IDE
-1. Download the code from [github]
+1. Download the code from [here](https://github.com/naloufi-manel/low_cost_sensor/tree/main/WaterMonitor)
 1. Open "WaterMonitor.ino" from the downloaded file with Arduino IDE
 1. Connect your Arduino Uno board
 1. Select Tools>Board: Arduino Uno and Tools>Ports
