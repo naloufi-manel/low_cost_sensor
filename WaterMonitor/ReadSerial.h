@@ -1,0 +1,2 @@
+
+bool readSerial(char result[]);
