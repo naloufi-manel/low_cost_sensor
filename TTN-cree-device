@@ -1,0 +1,24 @@
+###########################enregistrer un appareil au niveau de la console du cloud the things network (TTN)
+### aller sur le cloud the think network :
+https://eu1.cloud.thethings.network/console/
+
+### Création de l'application : 
+- Create application
+- ecrire l'identifiant de l'application (un nom choisie pour la gateway)
+- Cliquer sur Create application
+
+### Configutation des appareil au niveau de la console
+- Register end device
+- Select input method : "Enter end device specifics manually"
+- Frequency plan :Europe 863-870 MHz (SF9 for RX2 - recommended)
+- LoRawan version : LoRaWAN Specification 1.0.0
+- Cliquer sur "show advanced activation, lorawan class and cluster settings"
+- Mode activation : Activation by personalization (ABP)
+- Provisioning information > Dev EUI : apuuier sur generate
+- Device address : generate
+- appSKey : generate
+- NwkSKey : generate
+-Register end device
+- dans general settings > Networks layer > cliquer sur expand 
+- Cliquer sur advanced mac settings > cocher resets frame counters
+
