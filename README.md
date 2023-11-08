@@ -20,7 +20,7 @@ In addition to the 5 included sensors, you can add other environmental sensors, 
 A complete list of components, measurements, drawings, and other specifications can be found [here](https://github.com/naloufi-manel/low_cost_sensor/files/11312955/Sensor.Components.List.xlsx).
 
 #### Central Control Unit: 
-* Arduino Uno
+* Arduino Uno or Arduino Mega
 * Expansion Shield (DFRobot Expansion Shield V7.1)  
 * real time clock circuit board
 * 16 Bit ADC module V1.0
