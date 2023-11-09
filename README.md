@@ -20,10 +20,11 @@ In addition to the 5 included sensors, you can add other environmental sensors, 
 A complete list of components, measurements, drawings, and other specifications can be found [here](https://github.com/naloufi-manel/low_cost_sensor/files/11312955/Sensor.Components.List.xlsx).
 
 #### Central Control Unit: 
-* Arduino Uno or Arduino Mega
+* Arduino Uno or Arduino Mega (For LoRa communication)
 * Expansion Shield (DFRobot Expansion Shield V7.1)  
 * real time clock circuit board
 * 16 Bit ADC module V1.0
+* loRa shield v1.4 from Dragino (For LoRa communication)
 #### Water Sensors: 
 * Temperature (temperature probe and Terminal sensor adapter V2.0)
 * 2nd temperature Sensor (DS18B20 temperature sensor V2)
@@ -59,7 +60,7 @@ for your application. Feel free to post your software questions on our wiki page
 
 ### Sensor building: water quality monitoring 
 
-We need to connect all the sensors, MicroSD card module to the Arduino, fixed it to  the waterproof box and then connect to the power supply.
+We need to connect all the sensors, MicroSD card module to the Arduino, fixed it to the waterproof box and then connect to the power supply.
 
 #### Connect all the modules to the Arduino expansion (I/O Expansion Shield V7.1)
 
@@ -108,7 +109,7 @@ Connect the MicroSD card module to the blue SD card slot and insert the Micro SD
  ![](https://user-images.githubusercontent.com/63862628/234028706-34e0be27-760a-4a07-a9d1-3208af13e2b8.jpg)
 
 ##### All the sensors are connected now. Connect the expansion shield to the arduino UNO 
-
+To add the LoRa connection to the module, Use the Arduino Mega instead of Arduino Uno which offert 8 times more memory space. For that, Just connect the lora shield to The arduino Mega and then connect the expansion shield to the Lora shield. 
 
 
 ##### Attach the electronic components to the plate
