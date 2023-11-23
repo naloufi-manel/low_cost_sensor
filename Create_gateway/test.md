@@ -13,7 +13,7 @@ sudo apt-get update
 sudo apt-get upgrade
 
 ############ install wiringpi
-git clone https://github.com/WiringPi/WiringPi.git 
+```git clone https://github.com/WiringPi/WiringPi.git'''
 
 cd WiringPi 
 git pull origin
