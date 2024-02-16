@@ -17,7 +17,7 @@ In addition to the 5 included sensors, you can add other environmental sensors, 
 
 ### KnowFlow Hardware 
 
-A complete list of components, measurements, drawings, and other specifications can be found [here](https://github.com/naloufi-manel/low_cost_sensor/files/11312955/Sensor.Components.List.xlsx).
+A complete list of components, measurements, drawings, and other specifications can be found [here](https://github.com/naloufi-manel/low_cost_sensor/files/14310334/Sensor.Components.List.xlsx).
 
 #### Central Control Unit: 
 * Arduino Uno or Arduino Mega (For LoRa communication)
