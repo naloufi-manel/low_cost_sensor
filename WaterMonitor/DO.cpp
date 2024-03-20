@@ -32,8 +32,8 @@ if(EEPROM.read(adr)==0xFF){
     EEPROM_write(adr, CAL1_V);
   }
 
-int V_saturation = (int)CAL1_V + (int)35 * temperature_c - (int)CAL1_T * 35;
-float volt= voltage_mv + (int)35 * temperature_c - (int)CAL1_T * 35;
+int V_saturation = (int)CAL1_V + (int)14.48 * temperature_c - (int)CAL1_T * 14.48;
+float volt= voltage_mv + (int)14.48 * temperature_c - (int)CAL1_T * 14.48;
 *od1 = (float)(volt *DO_Table[temperature_c]/ (float)V_saturation);
 *od2 = (float)(volt *100/ (float)V_saturation);
 }
