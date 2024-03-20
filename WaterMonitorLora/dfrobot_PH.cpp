@@ -1,16 +1,3 @@
-/*
- * file DFRobot_PH.cpp * @ https://github.com/DFRobot/DFRobot_PH
- *
- * Arduino library for Gravity: Analog pH Sensor / Meter Kit V2, SKU: SEN0161-V2
- *
- * Copyright   [DFRobot](http://www.dfrobot.com), 2018
- * Copyright   GNU Lesser General Public License
- *
- * version  V1.0
- * date  2018-04
- */
-
-
 #if ARDUINO >= 100
 #include "Arduino.h"
 #else
@@ -49,27 +36,17 @@ void DFRobot_PH::begin()
         this->_neutralVoltage = 1500.0;  // new EEPROM, write typical voltage
         EEPROM_write(PHVALUEADDR, this->_neutralVoltage);
     }
-    //this->_neutralVoltage = 1500.0;
     EEPROM_read(PHVALUEADDR+4, this->_acidVoltage);//load the acid (pH = 4.0) voltage of the pH board from the EEPROM
-    //Serial.print("_acidVoltage:");
-    //Serial.println(this->_acidVoltage);
     if(EEPROM.read(PHVALUEADDR+4)==0xFF && EEPROM.read(PHVALUEADDR+5)==0xFF && EEPROM.read(PHVALUEADDR+6)==0xFF && EEPROM.read(PHVALUEADDR+7)==0xFF){
         this->_acidVoltage = 2032.44;  // new EEPROM, write typical voltage
         EEPROM_write(PHVALUEADDR+4, this->_acidVoltage);
     }
-    //this->_acidVoltage = 2032.44;
-    //EEPROM_write(PHVALUEADDR, this->_neutralVoltage);
-    //EEPROM_write(PHVALUEADDR+4, this->_acidVoltage);
 }
 
 float DFRobot_PH::readPH(float voltage, float temperature)
 {
     float slope = (7.0-4.0)/((this->_neutralVoltage-1500.0)/3.0 - (this->_acidVoltage-1500.0)/3.0);  // two point: (_neutralVoltage,7.0),(_acidVoltage,4.0)
     float intercept =  7.0 - slope*(this->_neutralVoltage-1500.0)/3.0;
-    //Serial.print("slope:");
-    //Serial.print(slope);
-    //Serial.print(",intercept:");
-    //Serial.println(intercept);
     this->_phValue = slope*(voltage-1500.0)/3.0+intercept;  //y = k*x + b
     return _phValue;
 }
@@ -164,14 +141,14 @@ void DFRobot_PH::phCalibration(byte mode)
 
         case 2:
         if(enterCalibrationFlag){
-            if((this->_voltage>1322)&&(this->_voltage<1853)){        // buffer solution:7.0{
+            if((this->_voltage>1322)&&(this->_voltage<1860)){        // buffer solution:7.0{
                 Serial.println();
                 Serial.print(F(">>>Buffer Solution:7.0"));
                 this->_neutralVoltage =  this->_voltage;
                 Serial.println(F(",Send EXITPH to Save and Exit<<<"));
                 Serial.println();
                 phCalibrationFinish = 1;
-            }else if((this->_voltage>1854)&&(this->_voltage<2400)){  //buffer solution:4.0
+            }else if((this->_voltage>1861)&&(this->_voltage<2400)){  //buffer solution:4.0
                 Serial.println();
                 Serial.print(F(">>>Buffer Solution:4.0"));
                 this->_acidVoltage =  this->_voltage;
@@ -191,9 +168,9 @@ void DFRobot_PH::phCalibration(byte mode)
         if(enterCalibrationFlag){
             Serial.println();
             if(phCalibrationFinish){
-                if((this->_voltage>1322)&&(this->_voltage<1853)){
+                if((this->_voltage>1322)&&(this->_voltage<1860)){
                     EEPROM_write(PHVALUEADDR, this->_neutralVoltage);
-                }else if((this->_voltage>1854)&&(this->_voltage<2400)){
+                }else if((this->_voltage>1861)&&(this->_voltage<2400)){
                     EEPROM_write(PHVALUEADDR+4, this->_acidVoltage);
                 }
                 Serial.print(F(">>>Calibration Successful"));
