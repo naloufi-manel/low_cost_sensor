@@ -1,7 +1,8 @@
-# continue leating the server et le code run for ever
+# continue leating the server and the code run for ever
 # https://www.youtube.com/watch?v=GBwNQImv9Ek
 # https://www.youtube.com/watch?v=72HZPng3fhM
 # https://uptimerobot.com/dashboard#792828925
+
 from flask import Flask
 from threading import Thread
 
