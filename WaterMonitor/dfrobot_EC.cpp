@@ -52,7 +52,7 @@ float DFRobot_EC::readEC(float voltage, float temperature)
     this->_rawEC = 1000*voltage/RES2/ECREF;
     Serial.print(voltage);
     Serial.print(this->_rawEC);
-    val = this->_rawEC * (1.0+0.0185*(temperature-25.0)); //temperature compensation
+    val = this->_rawEC * (1.0+0.0265*(temperature-25.0)); //temperature compensation
     this->_ecvalue = val * this->_kvalue + this->_inter;           //calculate the EC value after automatic shift  
     if (this->_ecvalue <=this->_inter){
       this->_ecvalue =0;
@@ -153,13 +153,13 @@ void DFRobot_EC::ecCalibration(byte mode)
         if(enterCalibrationFlag){
             if((this->_rawEC>0.88)&&(this->_rawEC<1.9)){                         //recognize 1.413us/cm buffer solution
                 Serial.println(F("enterCalibrationFlag : 0.88 < _rawEC < 1.9"));
-                this->_kvalueHigh =  this->_rawEC*(1.0+0.0185*(this->_temperature-25.0)); 
+                this->_kvalueHigh =  this->_rawEC*(1.0+0.0265*(this->_temperature-25.0)); 
                 Serial.print(F(">>>Successful,"));
                 Serial.println(F(" Send EXITEC to Save and Exit<<<"));
                 ecCalibrationFinish = 1;
-            }else if((this->_rawEC>0)&&(this->_rawEC<0.88)){                    //recognize 12.88ms/cm buffer solution
+            }else if((this->_rawEC>0)&&(this->_rawEC<0.88)){                    //recognize 0.36ms/cm buffer solution
                 Serial.println(F("enterCalibrationFlag : 0 < _rawEC < 0.88"));  //temperature compensation
-                this->_kvalueLow =  this->_rawEC*(1.0+0.0185*(this->_temperature-25.0)); 
+                this->_kvalueLow =  this->_rawEC*(1.0+0.0265*(this->_temperature-25.0)); 
                 Serial.print(F(">>>Successful,"));
                 Serial.println(F(" Send EXITEC to Save and Exit<<<"));
                 ecCalibrationFinish = 1;
