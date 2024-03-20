@@ -40,7 +40,7 @@ Spreading factor and frequency will be displayed
 ### Go to cloud the things network :
 ```https://eu1.cloud.thethings.network/console/```
 
-### configure gateway : 
+### Configure gateway : 
 #### In the gateway section :
 - Add gateway 
 - Write the gateway identifier (a name chosen for the gateway)
