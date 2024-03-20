@@ -46,7 +46,7 @@ unzip master.zip
 
 ```nano main.cpp```
 
-change line : ```#define SERVER1  "54.72.145.119"``` in ```#define SERVER1 "63.34.215.128"```
+Change line : ```#define SERVER1  "54.72.145.119"``` in ```#define SERVER1 "63.34.215.128"```
 
 
 ## Execute code
