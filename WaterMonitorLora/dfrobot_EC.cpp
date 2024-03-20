@@ -52,10 +52,8 @@ float DFRobot_EC::readEC(float voltage, float temperature)
     this->_rawEC = 1000*voltage/RES2/ECREF;
     Serial.print(voltage);
     Serial.print(this->_rawEC);
-    val = this->_rawEC * (1.0+0.0185*(temperature-25.0)); //temperature compensation
+    val = this->_rawEC * (1.0+0.0265*(temperature-25.0)); //temperature compensation
     this->_ecvalue = val * this->_kvalue + this->_inter;           //calculate the EC value after automatic shift  
-    // val = this->_rawEC * this->_kvalue + this->_inter;    
-    // this->_ecvalue = val * (1.0+0.0185*(temperature-25.0)); //si pas compensation lors de la calibration 
     if (this->_ecvalue <=this->_inter){
       this->_ecvalue =0;
     }
@@ -154,19 +152,14 @@ void DFRobot_EC::ecCalibration(byte mode)
         case 2:
         if(enterCalibrationFlag){
             if((this->_rawEC>0.88)&&(this->_rawEC<1.9)){                         //recognize 1.413us/cm buffer solution
-                Serial.println("enterCalibrationFlag : 0.88 < _rawEC < 1.9");
-                  //temperature compensation
-                //compECsolutionHigh = 1.413*(1.0+0.0185*(this->_temperature-25.0));
-                this->_kvalueHigh =  this->_rawEC*(1.0+0.0185*(this->_temperature-25.0)); 
-                //this->_kvalueHigh =  1000*this->_voltage/RES2/ECREF : peut etre pas de conpensation  /!\
+                Serial.println(F("enterCalibrationFlag : 0.88 < _rawEC < 1.9"));
+                this->_kvalueHigh =  this->_rawEC*(1.0+0.0265*(this->_temperature-25.0)); 
                 Serial.print(F(">>>Successful,"));
                 Serial.println(F(" Send EXITEC to Save and Exit<<<"));
                 ecCalibrationFinish = 1;
-            }else if((this->_rawEC>0)&&(this->_rawEC<0.88)){                    //recognize 12.88ms/cm buffer solution
-                Serial.println("enterCalibrationFlag : 0 < _rawEC < 0.88");  //temperature compensation
-                //compECsolutionLow = 0.36*(1.0+0.0185*(this->_temperature-25.0));
-                this->_kvalueLow =  this->_rawEC*(1.0+0.0185*(this->_temperature-25.0)); 
-                //this->_kvalueLow =  1000*this->_voltage/RES2/ECREF : peut etre pas de conpensation  /!\
+            }else if((this->_rawEC>0)&&(this->_rawEC<0.88)){                    //recognize 0.36ms/cm buffer solution
+                Serial.println(F("enterCalibrationFlag : 0 < _rawEC < 0.88"));  //temperature compensation
+                this->_kvalueLow =  this->_rawEC*(1.0+0.0265*(this->_temperature-25.0)); 
                 Serial.print(F(">>>Successful,"));
                 Serial.println(F(" Send EXITEC to Save and Exit<<<"));
                 ecCalibrationFinish = 1;
@@ -179,26 +172,16 @@ void DFRobot_EC::ecCalibration(byte mode)
         break;
         case 3:
         if(enterCalibrationFlag){
-                //Serial.println();
                 if(ecCalibrationFinish){   
-                  //this->_kvalue = (compECsolutionHigh-compECsolutionLow)/(this->_kvalueHigh-this->_kvalueLow);       //calibrate the k value
                   this->_kvalue = (1.413-0.36)/(this->_kvalueHigh-this->_kvalueLow);
                   this->_inter = 1.413 - this->_kvalue* this->_kvalueHigh;
-                  //this->_inter = compECsolutionHigh - this->_kvalue* this->_kvalueHigh;
                   EEPROM_write(KVALUEADDR, this->_kvalue);
                   EEPROM_write(KVALUEADDR+4, this->_inter);
-                    /*
-                    if((this->_rawEC>0)&&(this->_rawEC<0.9)){
-                      EEPROM_write(KVALUEADDR, this->_kvalueLow);
-                    }else if((this->_rawEC>0.9)&&(this->_rawEC<1.9)){
-                      EEPROM_write(KVALUEADDR+4, this->_kvalueHigh);
-                    }*/
-                    Serial.print(F(">>>Calibration Successful"));
+                     Serial.print(F(">>>Calibration Successful"));
                 }else{
                     Serial.print(F(">>>Calibration Failed"));
                 }
                 Serial.println(F(",Exit EC Calibration Mode<<<"));
-                //Serial.println();
                 ecCalibrationFinish  = 0;
                 enterCalibrationFlag = 0;
         }
