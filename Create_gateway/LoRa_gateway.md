@@ -11,7 +11,7 @@ Configure raspberry pi
 In interface option (```sudo raspi-config```) and enable SPI 
 
 
-## install git 
+## Install git 
 
 ```sudo apt-get install git-core```
 
@@ -20,7 +20,7 @@ In interface option (```sudo raspi-config```) and enable SPI
 ```sudo apt-get upgrade```
 
 
-## install wiringpi
+## Install wiringpi
 
 ```git clone https://github.com/WiringPi/WiringPi.git```
 
