@@ -12,3 +12,4 @@
 -Set the monitor interval (for the free version the minimum is 5 min) ==> every 5 minutes uptimerobot will load the URL which will keep the code running
  
 ## Run the code on Replit 
+- Every week you need to download the file to make sure you don't lose any data. Avanr de pouvoir commencer le traitement des données, il faut convertir les fichier du format ```.json``` au format ```.csv``` en utilisant le code ```convert_json_to_csv.ipynb```
